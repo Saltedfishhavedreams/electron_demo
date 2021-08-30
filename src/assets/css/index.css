@@ -1,0 +1,23 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+html,body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  /* 窗口可拖拽 */
+  -webkit-app-region: drag; 
+}
+
+.enable-click {
+  -webkit-app-region: no-drag;
+}
+
+li {
+  list-style: none;
+}

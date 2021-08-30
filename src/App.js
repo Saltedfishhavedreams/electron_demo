@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { memo } from 'react'
+import { renderRoutes } from 'react-router-config'
+import { Provider } from 'react-redux'
+
+import route from './router'
+import store from './store'
+
+import Nav from './components/nav-control/'
+import {
+  AppWrapper,
+  LeftNav,
+  RightContent
+} from './style'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Provider store={store}>
+      <AppWrapper>
+        <LeftNav>
+          <Nav />
+        </LeftNav>
+
+        <RightContent>
+          {renderRoutes(route)}
+        </RightContent>
+      </AppWrapper>
+    </Provider>
+  )
 }
 
-export default App;
+export default memo(App)
